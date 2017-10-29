@@ -6,7 +6,7 @@
 /*   By: jonkim <jonkim@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/11 17:06:39 by jonkim            #+#    #+#             */
-/*   Updated: 2017/10/25 17:21:39 by jonkim           ###   ########.fr       */
+/*   Updated: 2017/10/28 21:25:31 by jonkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,25 +55,12 @@ int		main(int ac, char **av)
 	while (size * size < 4 * pcs)
 		size++;
 	size += 3;
-	board = ft_create_board(size);
-	ft_put_blocks(list[0], board);
-
-	/*
-	while (res == NULL)
+	while (1)
 	{
 		board = ft_create_board(size);
+		ft_fill_list(list, board, 0); // next line starts only if all sub_f fails
 		size++;
 		free(board);
-	}
-	ft_print_result(res);
-	*/
-
-	for (int i = 0; i < 26; i++)
-	{
-		if (list[i].num == 0)
-			return (0);
-		for (int j = 0; j < 5; j++)
-			printf("%s\n", list[i].block[j]);
 	}
 	return (0);
 }

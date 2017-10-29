@@ -6,11 +6,31 @@
 /*   By: jonkim <jonkim@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/17 15:31:21 by jonkim            #+#    #+#             */
-/*   Updated: 2017/10/25 16:37:21 by jonkim           ###   ########.fr       */
+/*   Updated: 2017/10/28 22:30:47 by jonkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+void	ft_print_board(char **board)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (board[i][0] != '+')
+	{
+		j = 0;
+		while (board[i][j] != '+')
+		{
+			write(1, &board[i][j], 1);
+			j++;
+		}
+		i++;
+		write(1, "\n", 1);
+	}
+	exit(0);
+}
 
 void	ft_bigger_board(char **board, int size)
 {
@@ -52,15 +72,3 @@ char	**ft_create_board(int size)
 	ft_bigger_board(board, size);
 	return (board);
 }
-/*
-int		main(int ac, char **av)
-{
-	char **res;
-
-	(void)ac;
-	res = ft_create_board(10);
-	for (int i = 0; i < 10; i++)
-		printf("%s\n", res[i]);
-	return (0);
-}
-*/
